@@ -1,0 +1,40 @@
+esphome:
+  name: esp_dht11
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "WiFi-SSID"
+  password: "WiFi-Password"
+  manual_ip:
+    static_ip: 192.168.0.20
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "esp_dht11 Fallback Hotspot"
+    password: "4tcsxiDAqo_mFhtedrFr"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+ota:
+  password: "iMNYM98XrymXWDKuNC@q"
+api:
+  password: "iMNYM98XrymXWDKuNC@q"
+
+web_server:
+  port: 80
+  
+sensor:
+  - platform: dht
+    model: DHT11
+    pin: 2
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
+    update_interval: 15s
